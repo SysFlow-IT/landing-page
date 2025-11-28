@@ -184,6 +184,18 @@
 .processStep.visible {
   opacity: 1;
   transform: translateY(0);
+  animation: processStepReveal 0.6s ease-out forwards;
+}
+
+@keyframes processStepReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .processStep::before {
@@ -412,6 +424,19 @@
   }
 }
 
+@keyframes areaCardRevealMobile {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 .areaCard.visible:hover {
   transform: translateX(4px) translateY(-2px) scale(1.005) !important;
   border-left-color: var(--accent-green);
@@ -505,19 +530,15 @@
   }
 
   .processStep {
-    position: relative !important;
-    top: auto !important;
-    margin-left: 0 !important;
-    margin-bottom: 2rem !important;
+    position: sticky !important;
     width: 100%;
     max-width: 100%;
-    opacity: 1;
-    transform: none;
+    opacity: 0;
+    transform: translateY(30px);
   }
 
   .processStep.visible {
-    opacity: 1;
-    transform: none;
+    animation: processStepReveal 0.6s ease-out forwards;
   }
 
   .stepImageWrapper {
@@ -557,9 +578,9 @@
   .areaCard {
     padding: 2rem 1.5rem;
     margin-bottom: 1rem;
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(4px);
     position: relative !important;
     z-index: 1;
     width: 100% !important;
@@ -569,10 +590,9 @@
   }
 
   .areaCard.visible {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-    animation: none !important;
+    animation: areaCardRevealMobile 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)
+      forwards;
+    animation-delay: calc(var(--card-index, 0) * 0.1s);
   }
 
   .areaCard h4 {
@@ -611,15 +631,14 @@
 
   .areaCard {
     padding: 1.5rem 1rem;
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(4px);
   }
 
   .areaCard.visible {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-    animation: none;
+    animation: areaCardRevealMobile 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)
+      forwards;
+    animation-delay: calc(var(--card-index, 0) * 0.1s);
   }
 }

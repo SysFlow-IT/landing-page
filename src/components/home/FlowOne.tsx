@@ -107,7 +107,7 @@ export const FlowOne: React.FC = () => {
   const cardDelaySteps = useMemo(
     () =>
       PROCESS_STEPS.map((_, index) => ({
-        transitionDelay: `${index * 140 + 200}ms`,
+        animationDelay: `${index * 140 + 200}ms`,
       })),
     []
   )
