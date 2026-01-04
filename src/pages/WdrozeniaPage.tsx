@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Footer } from "@components/layout";
 import { Problems } from "@components/home/Problems";
-import { Solutions } from "@components/home/Solutions";
 import { FlowOne } from "@components/home/FlowOne";
 import { WhyChoose } from "@components/home/WhyChoose";
 import { Team } from "@components/home/Team";
@@ -93,7 +92,6 @@ export const WdrozeniaPage: React.FC = () => {
         title="Czy Twoja firma zmaga się z…"
         problems={PROBLEMS_WDROZENIA}
       />
-      <Solutions />
       <FlowOne />
       <WhyChoose />
       <Team />
