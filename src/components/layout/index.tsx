@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useScrollToSection } from "@hooks/useScrollToSection";
+import { Link, useLocation } from "react-router-dom";
 import { CONTACT } from "@constants";
 import styles from "./layout.module.css";
 
@@ -11,7 +11,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const scrollToSection = useScrollToSection();
+  const location = useLocation();
 
   useEffect(() => {
     let lastScroll = window.pageYOffset;
@@ -33,10 +33,11 @@ export const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLinkClick = (sectionId: string) => {
-    scrollToSection(sectionId);
+  const handleMobileClose = () => {
     setMobileMenuOpen(false);
   };
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav
@@ -46,13 +47,10 @@ export const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
     >
       <div className="container">
         <div className={styles.navContent}>
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
+          <Link
+            to="/"
             className={styles.brand}
+            onClick={handleMobileClose}
           >
             <img
               src={`${import.meta.env.BASE_URL}image/logo.png`}
@@ -60,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
               className={styles.brandMark}
             />
             <span className={styles.brandText}>SysFlow</span>
-          </a>
+          </Link>
 
           <button
             className={styles.mobileToggle}
@@ -83,16 +81,27 @@ export const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
                 mobileMenuOpen ? styles.open : ""
               }`}
             >
-              <a onClick={() => handleLinkClick("szkolenie")}>Szkolenie</a>
-              <a onClick={() => handleLinkClick("flowone")}>FlowOne</a>
-              <a onClick={() => handleLinkClick("team")}>Zespół</a>
+              <Link
+                to="/szkolenie"
+                onClick={handleMobileClose}
+                className={isActive("/szkolenie") ? styles.active : ""}
+              >
+                Szkolenie
+              </Link>
+              <Link
+                to="/wdrozenia"
+                onClick={handleMobileClose}
+                className={isActive("/wdrozenia") ? styles.active : ""}
+              >
+                Wdrożenia
+              </Link>
             </div>
-            <button
+            <a
+              href={`mailto:${CONTACT.email}`}
               className={styles.ctaButton}
-              onClick={() => handleLinkClick("kontakt")}
             >
               Kontakt
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -106,14 +115,14 @@ export const Footer: React.FC = () => {
       <div className="container">
         <div className={styles.footerContent}>
           <div className={styles.footerLeft}>
-            <div className={styles.footerLogo}>
+            <Link to="/" className={styles.footerLogo}>
               <img
                 src={`${import.meta.env.BASE_URL}image/logo.png`}
                 alt="SysFlow logo"
                 className={styles.logoImage}
               />
               <span className={styles.logoText}>SysFlow</span>
-            </div>
+            </Link>
             <div className={styles.footerContact}>
               <a href={`mailto:${CONTACT.email}`} className={styles.footerLink}>
                 {CONTACT.email}

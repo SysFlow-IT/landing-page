@@ -105,11 +105,13 @@
   z-index: -1;
 }
 
-.navLinks a:hover {
+.navLinks a:hover,
+.navLinks a.active {
   color: var(--primary-color);
 }
 
-.navLinks a:hover::after {
+.navLinks a:hover::after,
+.navLinks a.active::after {
   height: 100%;
 }
 
