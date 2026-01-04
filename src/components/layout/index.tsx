@@ -133,7 +133,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
           <p className={styles.footerText}>
-            © 2025 SysFlow. Wszelkie prawa zastrzeżone.
+            © {new Date().getFullYear()} SysFlow. Wszelkie prawa zastrzeżone.
           </p>
         </div>
       </div>

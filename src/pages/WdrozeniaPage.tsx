@@ -5,7 +5,7 @@ import { Solutions } from "@components/home/Solutions";
 import { FlowOne } from "@components/home/FlowOne";
 import { WhyChoose } from "@components/home/WhyChoose";
 import { Team } from "@components/home/Team";
-import { CONTACT } from "@constants";
+import { CONTACT, PROBLEMS_WDROZENIA } from "@constants";
 import { useScrollToSection } from "@hooks/useScrollToSection";
 import styles from "./WdrozeniaPage.module.css";
 
@@ -89,7 +89,10 @@ export const WdrozeniaPage: React.FC = () => {
         </div>
       </section>
 
-      <Problems />
+      <Problems
+        title="Czy Twoja firma zmaga się z…"
+        problems={PROBLEMS_WDROZENIA}
+      />
       <Solutions />
       <FlowOne />
       <WhyChoose />

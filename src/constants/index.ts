@@ -229,3 +229,26 @@ export const PROBLEMS = [
     text: "Masz nadmiar systemów w firmie, a każdy dział korzysta z osobnych aplikacji?",
   },
 ] as const;
+
+export const PROBLEMS_WDROZENIA = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+    text: "Twój zespół traci godziny na ręczne przepisywanie danych między systemami?",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    text: "Raporty i zestawienia wymagają żmudnej pracy w Excelu każdego tygodnia?",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600&fit=crop",
+    text: "Brakuje Ci jednego źródła prawdy dla danych w firmie?",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop",
+    text: "Procesy biznesowe są zbyt wolne i podatne na błędy ludzkie?",
+  },
+] as const;

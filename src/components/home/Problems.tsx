@@ -2,7 +2,20 @@ import React from "react";
 import { PROBLEMS } from "@constants";
 import styles from "./Problems.module.css";
 
-export const Problems: React.FC = () => {
+interface Problem {
+  image: string;
+  text: string;
+}
+
+interface ProblemsProps {
+  title?: string;
+  problems?: readonly Problem[];
+}
+
+export const Problems: React.FC<ProblemsProps> = ({
+  title = "Czy w firmie w której pracujesz…",
+  problems = PROBLEMS,
+}) => {
   const cardRefs = React.useRef<(HTMLElement | null)[]>([]);
   const [visibleCards, setVisibleCards] = React.useState<boolean[]>([]);
 
@@ -41,9 +54,9 @@ export const Problems: React.FC = () => {
   return (
     <section className={`${styles.section} section section--dark`}>
       <div className="container">
-        <h2 className="section-title">Czy w firmie w której pracujesz…</h2>
+        <h2 className="section-title">{title}</h2>
         <div className={styles.list}>
-          {PROBLEMS.map((problem, index) => (
+          {problems.map((problem, index) => (
             <article
               key={index}
               ref={(el) => {
