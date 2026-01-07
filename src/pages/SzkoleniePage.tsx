@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Navbar, Footer } from "@components/layout";
 import { Problems } from "@components/home/Problems";
 import { Training } from "@components/home/Training";
 import { Team } from "@components/home/Team";
 import { CONTACT } from "@constants";
+import { useScrollToSection } from "@hooks/useScrollToSection";
 import styles from "./SzkoleniePage.module.css";
 
 export const SzkoleniePage: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const scrollToSection = useScrollToSection();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,9 +77,12 @@ export const SzkoleniePage: React.FC = () => {
             >
               Umów spotkanie
             </a>
-            <Link to="/wdrozenia" className={styles.secondaryAction}>
-              FlowOne
-            </Link>
+            <button
+              className={styles.secondaryAction}
+              onClick={() => scrollToSection("szkolenie")}
+            >
+              Szkolenie
+            </button>
           </div>
         </div>
       </section>

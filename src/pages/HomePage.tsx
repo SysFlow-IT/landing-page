@@ -99,9 +99,6 @@ export const HomePage: React.FC = () => {
             >
               Umów spotkanie
             </button>
-            <Link to="/wdrozenia" className={styles.secondaryAction}>
-              FlowOne
-            </Link>
           </div>
         </div>
       </section>
