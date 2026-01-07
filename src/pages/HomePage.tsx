@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Navbar, Footer } from "@components/layout";
 import { Team } from "@components/home/Team";
+import { CONTACT } from "@constants";
 import { useRevealOnIntersect } from "@hooks/useRevealOnIntersect";
 import styles from "./HomePage.module.css";
 
 export const HomePage: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const { ref: solutionsRef, isVisible } = useRevealOnIntersect();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +21,28 @@ export const HomePage: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle scroll to section from navigation
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const sectionId = location.state.scrollTo;
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      // Clear the state
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="app loaded">
@@ -68,6 +92,17 @@ export const HomePage: React.FC = () => {
             SysFlow.One to software house, który przekształca sposób pracy firm
             poprzez automatyzację, AI, bezpieczeństwo i systemy zarządzania danymi.
           </p>
+          <div className={styles.heroActions}>
+            <button
+              className={styles.primaryAction}
+              onClick={() => scrollToSection("kontakt")}
+            >
+              Umów spotkanie
+            </button>
+            <Link to="/wdrozenia" className={styles.secondaryAction}>
+              FlowOne
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -144,6 +179,24 @@ export const HomePage: React.FC = () => {
       </section>
 
       <Team />
+
+      <section id="kontakt" className={styles.cta}>
+        <div className="container">
+          <h2>Skontaktuj się z nami</h2>
+          <p>
+            Umów bezpłatną konsultację i dowiedz się, jak możemy pomóc Twojej firmie.
+          </p>
+          <div className={styles.ctaButtons}>
+            <a href={`mailto:${CONTACT.email}`} className={styles.primaryAction}>
+              Napisz do nas
+            </a>
+            <a href={CONTACT.phoneLink} className={styles.secondaryAction}>
+              {CONTACT.phone}
+            </a>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

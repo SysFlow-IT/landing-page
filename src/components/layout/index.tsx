@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CONTACT } from "@constants";
 import styles from "./layout.module.css";
 
@@ -12,6 +12,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
   const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     let lastScroll = window.pageYOffset;
@@ -38,6 +39,18 @@ export const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
   };
 
   const isActive = (path: string) => location.pathname === path;
+
+  const scrollToSection = (sectionId: string) => {
+    handleMobileClose();
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: sectionId } });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <nav
@@ -93,15 +106,21 @@ export const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
                 onClick={handleMobileClose}
                 className={isActive("/wdrozenia") ? styles.active : ""}
               >
-                Wdrożenia
+                FlowOne
               </Link>
+              <a
+                onClick={() => scrollToSection("team")}
+                className={styles.navLink}
+              >
+                Zespół
+              </a>
             </div>
-            <a
-              href={`mailto:${CONTACT.email}`}
+            <button
               className={styles.ctaButton}
+              onClick={() => scrollToSection("kontakt")}
             >
               Kontakt
-            </a>
+            </button>
           </div>
         </div>
       </div>

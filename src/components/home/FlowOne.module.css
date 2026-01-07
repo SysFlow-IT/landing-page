@@ -29,7 +29,7 @@
 .descriptionText {
   max-width: 100% !important;
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   font-size: 1.15rem;
   line-height: 1.9;
 }
@@ -40,7 +40,7 @@
   padding: 3.5rem 4rem;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 4rem 0;
+  margin: 2.5rem 0;
   opacity: 0;
   transform: translateY(20px);
   position: relative;
@@ -114,7 +114,7 @@
 .processTitle {
   font-size: 2.5rem;
   text-align: center;
-  margin: 5rem 0 3rem;
+  margin: 3rem 0 2rem;
   color: #ffffff;
   font-weight: 300;
   letter-spacing: -0.02em;
@@ -146,7 +146,7 @@
 
 .processStepsContainer {
   position: relative;
-  margin: 4rem 0;
+  margin: 2rem 0;
   width: 100%;
   max-width: 100%;
   display: flex;
@@ -269,7 +269,7 @@
 .areasTitle {
   font-size: 2.5rem;
   text-align: center;
-  margin: 5rem 0 1.5rem;
+  margin: 3rem 0 1.5rem;
   color: #ffffff;
   font-weight: 300;
   letter-spacing: -0.02em;

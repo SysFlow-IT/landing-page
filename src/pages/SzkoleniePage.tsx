@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Navbar, Footer } from "@components/layout";
 import { Problems } from "@components/home/Problems";
 import { Training } from "@components/home/Training";
 import { Team } from "@components/home/Team";
 import { CONTACT } from "@constants";
-import { useScrollToSection } from "@hooks/useScrollToSection";
 import styles from "./SzkoleniePage.module.css";
 
 export const SzkoleniePage: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const scrollToSection = useScrollToSection();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,18 +70,15 @@ export const SzkoleniePage: React.FC = () => {
             w praktyczną wiedzę i narzędzia do natychmiastowego zastosowania.
           </p>
           <div className={styles.heroActions}>
-            <button
+            <a
+              href={`mailto:${CONTACT.email}`}
               className={styles.primaryAction}
-              onClick={() => scrollToSection("szkolenie")}
             >
-              Zobacz program
-            </button>
-            <button
-              className={styles.secondaryAction}
-              onClick={() => window.location.href = CONTACT.phoneLink}
-            >
-              Zadzwoń
-            </button>
+              Umów spotkanie
+            </a>
+            <Link to="/wdrozenia" className={styles.secondaryAction}>
+              FlowOne
+            </Link>
           </div>
         </div>
       </section>

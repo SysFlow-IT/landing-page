@@ -63,7 +63,7 @@ export const WdrozeniaPage: React.FC = () => {
             transform: `translateY(${scrollProgress * 25}px)`,
           }}
         >
-          <p className={styles.serviceLabel}>SysFlow / Wdrożenia</p>
+          <p className={styles.serviceLabel}>SysFlow / FlowOne</p>
           <h1 className={styles.title}>
             Automatyzacja i Systemy Zarządzania Danymi
           </h1>
@@ -72,17 +72,17 @@ export const WdrozeniaPage: React.FC = () => {
             danych, po pełną automatyzację procesów w Twojej firmie.
           </p>
           <div className={styles.heroActions}>
-            <button
+            <a
+              href={`mailto:${CONTACT.email}`}
               className={styles.primaryAction}
+            >
+              Umów spotkanie
+            </a>
+            <button
+              className={styles.secondaryAction}
               onClick={() => scrollToSection("flowone")}
             >
               Zobacz proces
-            </button>
-            <button
-              className={styles.secondaryAction}
-              onClick={() => window.location.href = CONTACT.phoneLink}
-            >
-              Zadzwoń
             </button>
           </div>
         </div>
