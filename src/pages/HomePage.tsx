@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Navbar, Footer } from "@components/layout";
+import { Problems } from "@components/home/Problems";
 import { Team } from "@components/home/Team";
 import { CONTACT } from "@constants";
 import { useRevealOnIntersect } from "@hooks/useRevealOnIntersect";
@@ -102,6 +103,8 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <Problems />
 
       <section className="section section--darker" ref={solutionsRef}>
         <div className="container">

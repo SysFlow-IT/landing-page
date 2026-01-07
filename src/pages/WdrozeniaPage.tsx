@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Footer } from "@components/layout";
-import { Problems } from "@components/home/Problems";
 import { FlowOne } from "@components/home/FlowOne";
 import { WhyChoose } from "@components/home/WhyChoose";
 import { Team } from "@components/home/Team";
-import { CONTACT, PROBLEMS_WDROZENIA } from "@constants";
+import { CONTACT } from "@constants";
 import { useScrollToSection } from "@hooks/useScrollToSection";
 import styles from "./WdrozeniaPage.module.css";
 
@@ -88,10 +87,6 @@ export const WdrozeniaPage: React.FC = () => {
         </div>
       </section>
 
-      <Problems
-        title="Czy Twoja firma zmaga się z…"
-        problems={PROBLEMS_WDROZENIA}
-      />
       <FlowOne />
       <WhyChoose />
       <Team />

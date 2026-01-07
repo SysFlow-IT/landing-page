@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Footer } from "@components/layout";
-import { Problems } from "@components/home/Problems";
 import { Training } from "@components/home/Training";
 import { Team } from "@components/home/Team";
 import { CONTACT } from "@constants";
@@ -87,7 +86,6 @@ export const SzkoleniePage: React.FC = () => {
         </div>
       </section>
 
-      <Problems />
       <Training />
       <Team />
 
