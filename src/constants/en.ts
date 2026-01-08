@@ -203,22 +203,22 @@ export const PROBLEMS = [
     {
         image:
             "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop",
-        text: "Searching for documents across chats, emails, and other apps?",
+        text: "Hunting for documents scattered across chats, emails, and multiple apps?",
     },
     {
         image:
             "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop",
-        text: "You have modern tools but feel you're not utilizing their potential.",
+        text: "Modern tools that sit underutilized because no one knows how to unlock their full potential?",
     },
     {
         image:
             "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
-        text: "How to make AI effective?",
+        text: "Making AI work effectively for your team instead of just adding to the noise?",
     },
     {
         image:
             "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
-        text: "Overwhelmed by systems in the company, with each department using separate apps?",
+        text: "A fragmented tech stack where every department operates in its own silo?",
     },
 ];
 
@@ -335,7 +335,7 @@ export const IMPLEMENTATIONS_PAGE = {
 };
 
 export const PROBLEMS_COMPONENT = {
-    TITLE: "Does your company experience…",
+    TITLE: "Does your company struggle with...",
 };
 
 export const FLOW_ONE_COMPONENT = {
