@@ -24,26 +24,22 @@ export const Testimonials: React.FC = () => {
     }, [isVisible]);
 
     return (
-        <section className={styles.section} ref={ref}>
-            <div className={styles.container}>
-                <h2 className={`${styles.heading} ${isVisible ? styles.headingVisible : ''}`}>
+        <section className={`${styles.section} section section--darker`} ref={ref}>
+            <div className="container">
+                <h2 className="section-title">
                     {content.HOME_PAGE.TESTIMONIALS.TITLE}
                 </h2>
 
-                <div className={styles.carousel}>
+                <div className={styles.testimonialWrapper}>
                     <div className={`${styles.card} ${isVisible ? styles.cardVisible : ''}`} ref={cardRef}>
-                        <div className={styles.content}>
-                            <p className={styles.quote}>
-                                {testimonial.content}
-                            </p>
-                            <div className={styles.author}>
-                                <div className={styles.info}>
-                                    <span className={styles.name}>{testimonial.author}</span>
-                                    <span className={styles.role}>
-                                        {testimonial.role}, {testimonial.company}
-                                    </span>
-                                </div>
-                            </div>
+                        <p className={styles.quote}>
+                            "{testimonial.content}"
+                        </p>
+                        <div className={styles.author}>
+                            <span className={styles.name}>{testimonial.author}</span>
+                            <span className={styles.role}>
+                                {testimonial.role}, {testimonial.company}
+                            </span>
                         </div>
                     </div>
                 </div>
