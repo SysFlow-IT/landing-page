@@ -8,7 +8,7 @@ export const Team: React.FC = () => {
   const { ref, isVisible } = useRevealOnIntersect();
 
   return (
-    <section id="team" className={styles.section} ref={ref}>
+    <section id="team" className={`${styles.section} section section--dark`} ref={ref}>
       <div className="container">
         <h2 className={styles.sectionTitle}>{content.TEAM_COMPONENT.TITLE}</h2>
         <p className={styles.sectionDescription}>{content.TEAM_COMPONENT.DESCRIPTION}</p>
