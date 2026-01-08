@@ -71,7 +71,9 @@ export const SzkoleniePage: React.FC = () => {
           </p>
           <div className={styles.heroActions}>
             <a
-              href={`mailto:${CONTACT.email}`}
+              href="https://calendly.com/michal-sysflow/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.primaryAction}
             >
               Umów spotkanie
