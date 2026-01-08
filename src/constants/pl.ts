@@ -2,14 +2,16 @@ export const CONTACT = {
   email: "contact@sysflow.one",
   phone: "+48 692 311 723",
   phoneLink: "tel:+48692311723",
-} as const;
+  emailLink: "mailto:contact@sysflow.one",
+  address: "Warszawa, Polska",
+  linkedin: "https://www.linkedin.com/company/sysflow-one",
+};
 
-export const TRAINING_PRICE = 12000;
+export const TRAINING_PRICE: number = 12000;
 
 export interface TeamMember {
   name: string;
   role: string;
-  initials: string;
   image: string;
 }
 
@@ -17,13 +19,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     name: "Michał Kurdziel",
     role: "CEO & Founder",
-    initials: "MK",
     image: `${import.meta.env.BASE_URL}image/kurdziel.jpg`,
   },
   {
     name: "Ricardo Ribeiro",
     role: "Automation Manager",
-    initials: "RR",
     image: `${import.meta.env.BASE_URL}image/ribeiro.jpg`,
   },
 ];
@@ -34,7 +34,7 @@ export const TRAINING_FEATURES = [
   "2 Konsultacje case study – 1,5h dedykowane konkretnym wyzwaniom Twojej firmy",
   "Grupowy czat – bieżące odpowiedzi na pytania podczas trwania programu",
   "Materiały do samodzielnej pracy",
-] as const;
+];
 
 export const AGENDA_ITEMS = [
   {
@@ -91,7 +91,7 @@ export const AGENDA_ITEMS = [
     description:
       "Dedykowane 1,5h na rozwiązanie konkretnych wyzwań w Twojej organizacji.",
   },
-] as const;
+];
 
 export const PROCESS_STEPS = [
   {
@@ -129,7 +129,7 @@ export const PROCESS_STEPS = [
     description:
       "Szkolimy zespół, tłumaczymy mechanizmy działania – zyskujecie autonomię w rozwoju systemu.",
   },
-] as const;
+];
 
 export const AUTOMATION_AREAS = [
   {
@@ -174,7 +174,7 @@ export const AUTOMATION_AREAS = [
     image:
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
   },
-] as const;
+];
 
 export const WHY_CHOOSE_ITEMS = [
   {
@@ -205,7 +205,7 @@ export const WHY_CHOOSE_ITEMS = [
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
   },
-] as const;
+];
 
 export const PROBLEMS = [
   {
@@ -228,7 +228,7 @@ export const PROBLEMS = [
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
     text: "Masz nadmiar systemów w firmie, a każdy dział korzysta z osobnych aplikacji?",
   },
-] as const;
+];
 
 export const PROBLEMS_WDROZENIA = [
   {
@@ -251,7 +251,7 @@ export const PROBLEMS_WDROZENIA = [
       "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop",
     text: "Procesy biznesowe są zbyt wolne i podatne na błędy ludzkie?",
   },
-] as const;
+];
 
 export const TESTIMONIALS = [
   {
@@ -259,6 +259,142 @@ export const TESTIMONIALS = [
     author: "Wojtek Mrówka",
     role: "Chief Operating Officer",
     company: "Cookie3",
-    image: "https://media.licdn.com/dms/image/v2/D4D03AQF0qD9g8x_w-g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1683626354695?e=1741824000&v=beta&t=HkM-_s4m2GvXy8wz_Xq9C-t-7p-X-1-1-1-1-1",
   },
-] as const;
+];
+
+export const HOME_PAGE = {
+  HERO: {
+    LABEL: "SysFlow /",
+    TITLE: "Automatyzacja, AI, bezpieczeństwo i systemy zarządzania danymi",
+    SUBTITLE: "SysFlow.One to software house, który przekształca sposób pracy firm poprzez automatyzację, AI, bezpieczeństwo i systemy zarządzania danymi.",
+    BUTTON_PRIMARY: "Umów spotkanie",
+  },
+  SOLUTIONS: {
+    TITLE: "Nasze Rozwiązania",
+    DESCRIPTION: "Też przez to przechodziliśmy — i odpowiedź znaleźliśmy w technologiach oraz mądrej automatyzacji. Poświęciliśmy czas na analizę narzędzi, przetestowaliśmy je w praktyce i zostawiliśmy tylko te, które realnie upraszczają pracę. Porządkujemy procesy, łączymy systemy, wprowadzamy AI tam, gdzie ma sens — aż w końcu układamy spójny, działający ekosystem pracy. Efekt? Mniej chaosu, szybsze decyzje i więcej czasu na kluczowe zadania.",
+    SUBHEADING: "Jak możemy pomóc?",
+    CARDS: {
+      TRAINING: {
+        TITLE: "Szkolenie",
+        DESCRIPTION: "Kompleksowy program edukacyjny z optymalizacji pracy, automatyzacji, bezpieczeństwa i prywatności oraz AI",
+        LINK: "Dowiedz się więcej",
+        URL: "/szkolenie",
+      },
+      FLOWONE: {
+        TITLE: "FlowOne SYSTEM",
+        DESCRIPTION: "Wdrożenie zaawansowanego systemu do zarządzania danymi i automatyzacji procesów biznesowych przy wykorzystaniu narzędzi typu low-code.",
+        LINK: "Dowiedz się więcej",
+        URL: "/wdrozenia",
+      },
+    },
+  },
+  TESTIMONIALS: {
+    TITLE: "Co mówią nasi klienci",
+  },
+  CTA: {
+    TITLE: "Skontaktuj się z nami",
+    DESCRIPTION: "Umów bezpłatną konsultację i dowiedz się, jak możemy pomóc Twojej firmie.",
+    BUTTON_PRIMARY: "Umów spotkanie",
+  },
+};
+
+export const NAV = {
+  TRAINING: "Szkolenie",
+  IMPLEMENTATIONS: "FlowOne",
+  TEAM: "Zespół",
+  CONTACT: "Kontakt",
+  URLS: {
+    TRAINING: "szkolenie",
+    IMPLEMENTATIONS: "wdrozenia",
+  }
+};
+
+export const TRAINING_PAGE = {
+  HERO: {
+    LABEL: "SysFlow / Szkolenie",
+    TITLE: "Przekształć Sposób Pracy Swojego Zespołu",
+    SUBTITLE: "Kompleksowy program szkoleniowy: 8 spotkań, które wyposażą Twój zespół w praktyczną wiedzę i narzędzia do natychmiastowego zastosowania.",
+    BUTTON_PRIMARY: "Umów spotkanie",
+    BUTTON_SECONDARY: "Szkolenie",
+  },
+  CTA: {
+    TITLE: "Zarezerwuj szkolenie dla swojego zespołu",
+    DESCRIPTION: "Skontaktuj się z nami, aby omówić szczegóły programu i dostosować go do potrzeb Twojej firmy.",
+    BUTTON_PRIMARY: "Umów spotkanie",
+  }
+};
+
+export const IMPLEMENTATIONS_PAGE = {
+  HERO: {
+    LABEL: "SysFlow / FlowOne",
+    TITLE: "Automatyzacja i Systemy Zarządzania Danymi",
+    SUBTITLE: "Kompleksowe wdrożenia systemów automatyzacji. Od audytu, przez migrację danych, po pełną automatyzację procesów w Twojej firmie.",
+    BUTTON_PRIMARY: "Umów spotkanie",
+    BUTTON_SECONDARY: "Zobacz proces",
+  },
+  CTA: {
+    TITLE: "Rozpocznij transformację swojej firmy",
+    DESCRIPTION: "Umów bezpłatną konsultację i dowiedz się, jak możemy zautomatyzować procesy w Twojej organizacji.",
+    BUTTON_PRIMARY: "Umów spotkanie",
+  }
+};
+
+export const PROBLEMS_COMPONENT = {
+  TITLE: "Co nas blokuje?",
+  SUBTITLE: "Brzmi znajomo?",
+};
+
+export const FLOW_ONE_COMPONENT = {
+  TITLE: "FlowOne SYSTEM: Inteligentne Centrum Danych",
+  DESCRIPTION: "FlowOne SYSTEM to kompleksowe rozwiązanie, które centralizuje dane z wszystkich systemów firmowych i automatyzuje kluczowe procesy. Wykorzystujemy technologie AI oraz platformy Low-Code/No-Code, aby dostarczyć system idealnie dopasowany do Twojej firmy.",
+  GOAL: {
+    TITLE: "Cel wdrożenia",
+    DESCRIPTION: "Usprawnienie pracy poprzez automatyzację powtarzalnych zadań i scentralizowanie danych w jednym, intuicyjnym systemie. Koniec z przeskakiwaniem między dziesiątkami aplikacji – wszystko w jednym miejscu.",
+    BILLING: "Model rozliczeniowy: FTE/success fee"
+  },
+  PROCESS_TITLE: "Proces Wdrożenia FlowOne SYSTEM",
+  AREAS: {
+    TITLE: "Przykładowe Obszary Automatyzacji",
+    SUBTITLE: "FlowOne SYSTEM można dostosować do niemal każdego procesu biznesowego. Oto najczęściej automatyzowane obszary:"
+  }
+};
+
+export const WHY_CHOOSE_COMPONENT = {
+  TITLE: "Dlaczego wybrać?",
+  PHILOSOPHY: {
+    TITLE: "Nasza Filozofia",
+    DESCRIPTION: "Wierzymy, że technologia powinna służyć ludziom, a nie na odwrót. Dlatego projektujemy systemy intuicyjne, które realnie oszczędzają czas i redukują frustrację."
+  }
+};
+
+export const TRAINING_COMPONENT = {
+  TITLE: "Szkolenie: Przekształć Sposób Pracy Zespołu",
+  DESCRIPTION: "Nasze kompleksowe szkolenie to 8 spotkań, które wyposażą Twój zespół w praktyczną wiedzę i narzędzia do natychmiastowego zastosowania. Każde spotkanie trwa 60 minut i kończy się konkretnymi wskazówkami implementacyjnymi. Celem jest znaczący efekt po każdym spotkaniu.",
+  FEATURES_TITLE: "Co wyróżnia nasze szkolenie?",
+  PRICE: {
+    TITLE: "Koszt",
+    VALUE: 12000,
+    NOTE: "Niektóre prezentowane aplikacje są płatne – decyzja o ich zakupie należy do uczestników."
+  },
+  AGENDA: {
+    TITLE: "Agenda Szkolenia",
+    SUBTITLE: "Program dostosowujemy do specyfiki Twojej firmy, ale standardowa agenda obejmuje następujące moduły:"
+  }
+};
+
+export const TEAM_COMPONENT = {
+  TITLE: "Nasz Zespół"
+};
+
+export const CTA_COMPONENT = {
+  TITLE: "Zacznij Transformację Już Dziś",
+  DESCRIPTION: "Czy Twoja firma jest gotowa na kolejny poziom efektywności? Niezależnie od tego, czy interesuje Cię kompleksowe szkolenie zespołu, czy wdrożenie zaawansowanego systemu automatyzacji – jesteśmy tutaj, aby pomóc.",
+  STEPS_TITLE: "Następne Kroki:",
+  STEPS: [
+    { BOLD: "Umów bezpłatną konsultację", TEXT: "porozmawiajmy o Twoich potrzebach" },
+    { BOLD: "Otrzymaj spersonalizowaną propozycję", TEXT: "dostosowaną do Twojej firmy" },
+    { BOLD: "Rozpocznij transformację", TEXT: "zacznij oszczędzać czas już teraz" }
+  ],
+  BUTTON_PRIMARY: "Umów spotkanie",
+  BUTTON_SECONDARY: "Zadzwoń"
+};

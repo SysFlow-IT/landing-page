@@ -1,9 +1,10 @@
 import React from "react";
-import { WHY_CHOOSE_ITEMS } from "@constants";
+import { useContent } from "../../hooks/useContent";
 import { useRevealOnIntersect } from "@hooks/useRevealOnIntersect";
 import styles from "./WhyChoose.module.css";
 
 export const WhyChoose: React.FC = () => {
+  const { content } = useContent();
   const cardRefs = React.useRef<(HTMLElement | null)[]>([]);
   const [visibleCards, setVisibleCards] = React.useState<boolean[]>([]);
   const { ref: philosophyRef, isVisible: philosophyVisible } =
@@ -44,17 +45,16 @@ export const WhyChoose: React.FC = () => {
   return (
     <section className={`${styles.section} section section--darker`}>
       <div className="container">
-        <h2 className="section-title">Dlaczego wybrać?</h2>
+        <h2 className="section-title">{content.WHY_CHOOSE_COMPONENT.TITLE}</h2>
         <div className={styles.list}>
-          {WHY_CHOOSE_ITEMS.map((item, index) => (
+          {content.WHY_CHOOSE_ITEMS.map((item, index) => (
             <article
               key={index}
               ref={(el) => {
                 cardRefs.current[index] = el;
               }}
-              className={`${styles.card} ${
-                visibleCards[index] ? styles.visible : ""
-              }`}
+              className={`${styles.card} ${visibleCards[index] ? styles.visible : ""
+                }`}
               style={
                 {
                   "--card-index": index,
@@ -86,15 +86,12 @@ export const WhyChoose: React.FC = () => {
 
         <div
           ref={philosophyRef}
-          className={`${styles.philosophy} ${
-            philosophyVisible ? styles.visible : ""
-          }`}
+          className={`${styles.philosophy} ${philosophyVisible ? styles.visible : ""
+            }`}
         >
-          <h3>Nasza Filozofia</h3>
+          <h3>{content.WHY_CHOOSE_COMPONENT.PHILOSOPHY.TITLE}</h3>
           <p>
-            Wierzymy, że technologia powinna służyć ludziom, a nie na odwrót.
-            Dlatego projektujemy systemy intuicyjne, które realnie oszczędzają
-            czas i redukują frustrację.
+            {content.WHY_CHOOSE_COMPONENT.PHILOSOPHY.DESCRIPTION}
           </p>
         </div>
       </div>

@@ -1,16 +1,17 @@
 import React, { useRef, useEffect } from 'react';
-import { TESTIMONIALS } from '@constants';
+import { useContent } from '../../hooks/useContent';
 import { useRevealOnIntersect } from '@hooks/useRevealOnIntersect';
 import styles from './Testimonials.module.css';
 import gsap from 'gsap';
 
 export const Testimonials: React.FC = () => {
+    const { content } = useContent();
     const { ref, isVisible } = useRevealOnIntersect();
     const cardRef = useRef<HTMLDivElement>(null);
 
     // Simple carousel logic could be added here if we have multiple testimonials
     // For now, we display the first one statically but styled as a featured card
-    const testimonial = TESTIMONIALS[0];
+    const testimonial = content.TESTIMONIALS[0];
 
     useEffect(() => {
         if (isVisible && cardRef.current) {
@@ -26,7 +27,7 @@ export const Testimonials: React.FC = () => {
         <section className={styles.section} ref={ref}>
             <div className={styles.container}>
                 <h2 className={`${styles.heading} ${isVisible ? styles.headingVisible : ''}`}>
-                    Co mówią nasi klienci
+                    {content.HOME_PAGE.TESTIMONIALS.TITLE}
                 </h2>
 
                 <div className={styles.carousel}>
@@ -36,13 +37,6 @@ export const Testimonials: React.FC = () => {
                                 {testimonial.content}
                             </p>
                             <div className={styles.author}>
-                                {testimonial.image && (
-                                    <img
-                                        src={testimonial.image}
-                                        alt={testimonial.author}
-                                        className={styles.avatar}
-                                    />
-                                )}
                                 <div className={styles.info}>
                                     <span className={styles.name}>{testimonial.author}</span>
                                     <span className={styles.role}>

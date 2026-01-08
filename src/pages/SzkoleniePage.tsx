@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Navbar, Footer } from "@components/layout";
 import { Training } from "@components/home/Training";
 import { Team } from "@components/home/Team";
-import { CONTACT } from "@constants";
+import { useContent } from "../hooks/useContent";
 import { useScrollToSection } from "@hooks/useScrollToSection";
 import styles from "./SzkoleniePage.module.css";
 
 export const SzkoleniePage: React.FC = () => {
+  const { content } = useContent();
   const [scrollProgress, setScrollProgress] = useState(0);
   const scrollToSection = useScrollToSection();
 
@@ -61,13 +62,12 @@ export const SzkoleniePage: React.FC = () => {
             transform: `translateY(${scrollProgress * 25}px)`,
           }}
         >
-          <p className={styles.serviceLabel}>SysFlow / Szkolenie</p>
+          <p className={styles.serviceLabel}>{content.TRAINING_PAGE.HERO.LABEL}</p>
           <h1 className={styles.title}>
-            Przekształć Sposób Pracy Swojego Zespołu
+            {content.TRAINING_PAGE.HERO.TITLE}
           </h1>
           <p className={styles.subtitle}>
-            Kompleksowy program szkoleniowy: 8 spotkań, które wyposażą Twój zespół
-            w praktyczną wiedzę i narzędzia do natychmiastowego zastosowania.
+            {content.TRAINING_PAGE.HERO.SUBTITLE}
           </p>
           <div className={styles.heroActions}>
             <a
@@ -76,13 +76,13 @@ export const SzkoleniePage: React.FC = () => {
               rel="noopener noreferrer"
               className={styles.primaryAction}
             >
-              Umów spotkanie
+              {content.TRAINING_PAGE.HERO.BUTTON_PRIMARY}
             </a>
             <button
               className={styles.secondaryAction}
               onClick={() => scrollToSection("szkolenie")}
             >
-              Szkolenie
+              {content.TRAINING_PAGE.HERO.BUTTON_SECONDARY}
             </button>
           </div>
         </div>
@@ -93,16 +93,16 @@ export const SzkoleniePage: React.FC = () => {
 
       <section className={styles.cta}>
         <div className="container">
-          <h2>Zarezerwuj szkolenie dla swojego zespołu</h2>
+          <h2>{content.TRAINING_PAGE.CTA.TITLE}</h2>
           <p>
-            Skontaktuj się z nami, aby omówić szczegóły programu i dostosować go do potrzeb Twojej firmy.
+            {content.TRAINING_PAGE.CTA.DESCRIPTION}
           </p>
           <div className={styles.ctaButtons}>
             <a href="https://calendly.com/michal-sysflow/30min" target="_blank" rel="noopener noreferrer" className={styles.primaryAction}>
-              Umów spotkanie
+              {content.TRAINING_PAGE.CTA.BUTTON_PRIMARY}
             </a>
-            <a href={CONTACT.phoneLink} className={styles.secondaryAction}>
-              {CONTACT.phone}
+            <a href={content.CONTACT.phoneLink} className={styles.secondaryAction}>
+              {content.CONTACT.phone}
             </a>
           </div>
         </div>

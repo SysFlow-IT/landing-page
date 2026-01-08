@@ -4,11 +4,12 @@ import { Navbar, Footer } from "@components/layout";
 import { Problems } from "@components/home/Problems";
 import { Testimonials } from "@components/home/Testimonials";
 import { Team } from "@components/home/Team";
-import { CONTACT } from "@constants";
+import { useContent } from "../hooks/useContent";
 import { useRevealOnIntersect } from "@hooks/useRevealOnIntersect";
 import styles from "./HomePage.module.css";
 
 export const HomePage: React.FC = () => {
+  const { content, language } = useContent();
   const [scrollProgress, setScrollProgress] = useState(0);
   const { ref: solutionsRef, isVisible } = useRevealOnIntersect();
   const location = useLocation();
@@ -39,12 +40,7 @@ export const HomePage: React.FC = () => {
     }
   }, [location.state]);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+
 
   return (
     <div className="app loaded">
@@ -86,21 +82,22 @@ export const HomePage: React.FC = () => {
             transform: `translateY(${scrollProgress * 25}px)`,
           }}
         >
-          <p className={styles.serviceLabel}>SysFlow /</p>
+          <p className={styles.serviceLabel}>{content.HOME_PAGE.HERO.LABEL}</p>
           <h1 className={styles.title}>
-            Automatyzacja, AI, bezpieczeństwo i systemy zarządzania danymi
+            {content.HOME_PAGE.HERO.TITLE}
           </h1>
           <p className={styles.subtitle}>
-            SysFlow.One to software house, który przekształca sposób pracy firm
-            poprzez automatyzację, AI, bezpieczeństwo i systemy zarządzania danymi.
+            {content.HOME_PAGE.HERO.SUBTITLE}
           </p>
           <div className={styles.heroActions}>
-            <button
+            <a
+              href="https://calendly.com/michal-sysflow/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.primaryAction}
-              onClick={() => scrollToSection("kontakt")}
             >
-              Umów spotkanie
-            </button>
+              {content.HOME_PAGE.HERO.BUTTON_PRIMARY}
+            </a>
           </div>
         </div>
       </section>
@@ -109,38 +106,31 @@ export const HomePage: React.FC = () => {
 
       <section className="section section--darker" ref={solutionsRef}>
         <div className="container">
-          <h2 className="section-title">Nasze Rozwiązania</h2>
+          <h2 className="section-title">{content.HOME_PAGE.SOLUTIONS.TITLE}</h2>
           <p className={`${styles.descriptionText} ${isVisible ? styles.visible : ""}`}>
-            Też przez to przechodziliśmy — i odpowiedź znaleźliśmy w technologiach
-            oraz mądrej automatyzacji. Poświęciliśmy czas na analizę narzędzi,
-            przetestowaliśmy je w praktyce i zostawiliśmy tylko te, które realnie
-            upraszczają pracę. Porządkujemy procesy, łączymy systemy, wprowadzamy
-            AI tam, gdzie ma sens — aż w końcu układamy spójny, działający
-            ekosystem pracy. Efekt? Mniej chaosu, szybsze decyzje i więcej czasu
-            na kluczowe zadania.
+            {content.HOME_PAGE.SOLUTIONS.DESCRIPTION}
           </p>
-          <h3 className={styles.heading}>Jak możemy pomóc?</h3>
+          <h3 className={styles.heading}>{content.HOME_PAGE.SOLUTIONS.SUBHEADING}</h3>
           <div className={styles.cards}>
             <Link
-              to="/szkolenie"
+              to={`/${language}/${content.HOME_PAGE.SOLUTIONS.CARDS.TRAINING.URL.replace('/', '')}`}
               className={`${styles.card} ${isVisible ? styles.cardVisible : ""}`}
             >
               <div className={styles.cardImage}>
                 <img
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop"
-                  alt="Szkolenie"
+                  alt={content.HOME_PAGE.SOLUTIONS.CARDS.TRAINING.TITLE}
                   className={styles.image}
                   loading="lazy"
                 />
               </div>
               <div className={styles.cardContent}>
-                <h4>Szkolenie</h4>
+                <h4>{content.HOME_PAGE.SOLUTIONS.CARDS.TRAINING.TITLE}</h4>
                 <p>
-                  Kompleksowy program edukacyjny z optymalizacji pracy,
-                  automatyzacji, bezpieczeństwa i prywatności oraz AI
+                  {content.HOME_PAGE.SOLUTIONS.CARDS.TRAINING.DESCRIPTION}
                 </p>
                 <span className={styles.link}>
-                  Dowiedz się więcej
+                  {content.HOME_PAGE.SOLUTIONS.CARDS.TRAINING.LINK}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
@@ -148,27 +138,25 @@ export const HomePage: React.FC = () => {
               </div>
             </Link>
             <Link
-              to="/wdrozenia"
+              to={`/${language}/${content.HOME_PAGE.SOLUTIONS.CARDS.FLOWONE.URL.replace('/', '')}`}
               className={`${styles.card} ${isVisible ? styles.cardVisible : ""}`}
               style={{ animationDelay: "0.2s" }}
             >
               <div className={styles.cardImage}>
                 <img
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop"
-                  alt="FlowOne SYSTEM"
+                  alt={content.HOME_PAGE.SOLUTIONS.CARDS.FLOWONE.TITLE}
                   className={styles.image}
                   loading="lazy"
                 />
               </div>
               <div className={styles.cardContent}>
-                <h4>FlowOne SYSTEM</h4>
+                <h4>{content.HOME_PAGE.SOLUTIONS.CARDS.FLOWONE.TITLE}</h4>
                 <p>
-                  Wdrożenie zaawansowanego systemu do zarządzania danymi i
-                  automatyzacji procesów biznesowych przy wykorzystaniu narzędzi
-                  typu low-code.
+                  {content.HOME_PAGE.SOLUTIONS.CARDS.FLOWONE.DESCRIPTION}
                 </p>
                 <span className={styles.link}>
-                  Dowiedz się więcej
+                  {content.HOME_PAGE.SOLUTIONS.CARDS.FLOWONE.LINK}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
@@ -185,16 +173,16 @@ export const HomePage: React.FC = () => {
 
       <section id="kontakt" className={styles.cta}>
         <div className="container">
-          <h2>Skontaktuj się z nami</h2>
+          <h2>{content.HOME_PAGE.CTA.TITLE}</h2>
           <p>
-            Umów bezpłatną konsultację i dowiedz się, jak możemy pomóc Twojej firmie.
+            {content.HOME_PAGE.CTA.DESCRIPTION}
           </p>
           <div className={styles.ctaButtons}>
             <a href="https://calendly.com/michal-sysflow/30min" target="_blank" rel="noopener noreferrer" className={styles.primaryAction}>
-              Umów spotkanie
+              {content.HOME_PAGE.CTA.BUTTON_PRIMARY}
             </a>
-            <a href={CONTACT.phoneLink} className={styles.secondaryAction}>
-              {CONTACT.phone}
+            <a href={content.CONTACT.phoneLink} className={styles.secondaryAction}>
+              {content.CONTACT.phone}
             </a>
           </div>
         </div>

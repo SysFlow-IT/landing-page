@@ -3,11 +3,12 @@ import { Navbar, Footer } from "@components/layout";
 import { FlowOne } from "@components/home/FlowOne";
 import { WhyChoose } from "@components/home/WhyChoose";
 import { Team } from "@components/home/Team";
-import { CONTACT } from "@constants";
+import { useContent } from "../hooks/useContent";
 import { useScrollToSection } from "@hooks/useScrollToSection";
 import styles from "./WdrozeniaPage.module.css";
 
 export const WdrozeniaPage: React.FC = () => {
+  const { content } = useContent();
   const [scrollProgress, setScrollProgress] = useState(0);
   const scrollToSection = useScrollToSection();
 
@@ -62,13 +63,12 @@ export const WdrozeniaPage: React.FC = () => {
             transform: `translateY(${scrollProgress * 25}px)`,
           }}
         >
-          <p className={styles.serviceLabel}>SysFlow / FlowOne</p>
+          <p className={styles.serviceLabel}>{content.IMPLEMENTATIONS_PAGE.HERO.LABEL}</p>
           <h1 className={styles.title}>
-            Automatyzacja i Systemy Zarządzania Danymi
+            {content.IMPLEMENTATIONS_PAGE.HERO.TITLE}
           </h1>
           <p className={styles.subtitle}>
-            Kompleksowe wdrożenia systemów automatyzacji. Od audytu, przez migrację
-            danych, po pełną automatyzację procesów w Twojej firmie.
+            {content.IMPLEMENTATIONS_PAGE.HERO.SUBTITLE}
           </p>
           <div className={styles.heroActions}>
             <a
@@ -77,13 +77,13 @@ export const WdrozeniaPage: React.FC = () => {
               rel="noopener noreferrer"
               className={styles.primaryAction}
             >
-              Umów spotkanie
+              {content.IMPLEMENTATIONS_PAGE.HERO.BUTTON_PRIMARY}
             </a>
             <button
               className={styles.secondaryAction}
               onClick={() => scrollToSection("flowone")}
             >
-              Zobacz proces
+              {content.IMPLEMENTATIONS_PAGE.HERO.BUTTON_SECONDARY}
             </button>
           </div>
         </div>
@@ -95,16 +95,16 @@ export const WdrozeniaPage: React.FC = () => {
 
       <section className={styles.cta}>
         <div className="container">
-          <h2>Rozpocznij transformację swojej firmy</h2>
+          <h2>{content.IMPLEMENTATIONS_PAGE.CTA.TITLE}</h2>
           <p>
-            Umów bezpłatną konsultację i dowiedz się, jak możemy zautomatyzować procesy w Twojej organizacji.
+            {content.IMPLEMENTATIONS_PAGE.CTA.DESCRIPTION}
           </p>
           <div className={styles.ctaButtons}>
             <a href="https://calendly.com/michal-sysflow/30min" target="_blank" rel="noopener noreferrer" className={styles.primaryAction}>
-              Umów spotkanie
+              {content.IMPLEMENTATIONS_PAGE.CTA.BUTTON_PRIMARY}
             </a>
-            <a href={CONTACT.phoneLink} className={styles.secondaryAction}>
-              {CONTACT.phone}
+            <a href={content.CONTACT.phoneLink} className={styles.secondaryAction}>
+              {content.CONTACT.phone}
             </a>
           </div>
         </div>

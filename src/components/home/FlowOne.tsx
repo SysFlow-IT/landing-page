@@ -1,17 +1,29 @@
 import React, { useRef, useEffect, useMemo, useState } from 'react'
-import { PROCESS_STEPS, AUTOMATION_AREAS } from '@constants'
+import { useContent } from '../../hooks/useContent'
 import { useRevealOnIntersect } from '@hooks/useRevealOnIntersect'
 import styles from './FlowOne.module.css'
 
+interface ProcessStep {
+  title: string
+  description: string
+  image: string
+}
+
+interface AutomationArea {
+  title: string
+  description: string
+  image?: string
+}
+
 interface ProcessStepCardProps {
-  step: typeof PROCESS_STEPS[number]
+  step: ProcessStep
   index: number
   isVisible: boolean
   delayStyle: React.CSSProperties
 }
 
 interface AutomationAreaCardProps {
-  area: typeof AUTOMATION_AREAS[number]
+  area: AutomationArea
   index: number
   isVisible: boolean
 }
@@ -22,18 +34,18 @@ const AutomationAreaCard: React.FC<AutomationAreaCardProps> = ({
   isVisible,
 }) => {
   return (
-    <div 
+    <div
       className={`${styles.areaCard} ${isVisible ? styles.visible : ''}`}
-      style={{ 
+      style={{
         animationDelay: `${index * 0.12}s`,
         '--card-index': index
       } as React.CSSProperties}
     >
       {area.image && (
         <div className={styles.areaCardImageWrapper} key={`image-${index}`}>
-          <img 
+          <img
             key={`img-${index}-${area.image}`}
-            src={area.image} 
+            src={area.image}
             alt={area.title}
             className={styles.areaCardImage}
             loading="lazy"
@@ -64,8 +76,6 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // Usunięto animację scale podczas scrollowania - tylko efekt sticky pozostaje
-
   const baseTop = isCompactStack ? 90 : 140
   const verticalStep = isCompactStack ? 18 : 30
   const horizontalStep = isCompactStack ? 8 : 15
@@ -86,8 +96,8 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
       }}
     >
       <div className={styles.stepImageWrapper}>
-        <img 
-          src={step.image} 
+        <img
+          src={step.image}
           alt={step.title}
           className={styles.stepImage}
           loading="lazy"
@@ -102,41 +112,39 @@ const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
 }
 
 export const FlowOne: React.FC = () => {
+  const { content } = useContent()
   const { ref, isVisible } = useRevealOnIntersect()
-  
+
   const cardDelaySteps = useMemo(
     () =>
-      PROCESS_STEPS.map((_, index) => ({
+      content.PROCESS_STEPS.map((_, index) => ({
         animationDelay: `${index * 140 + 200}ms`,
       })),
-    []
+    [content.PROCESS_STEPS]
   )
 
   return (
     <section id="flowone" className="section section--darker" ref={ref}>
       <div className="container">
-        <h2 className={`section-title ${styles.titleText}`}>FlowOne SYSTEM: Inteligentne Centrum Danych</h2>
+        <h2 className={`section-title ${styles.titleText}`}>{content.FLOW_ONE_COMPONENT.TITLE}</h2>
         <p className={`section-description ${styles.descriptionText}`}>
-          FlowOne SYSTEM to kompleksowe rozwiązanie, które centralizuje dane z wszystkich systemów firmowych 
-          i automatyzuje kluczowe procesy. Wykorzystujemy technologie AI oraz platformy Low-Code/No-Code, 
-          aby dostarczyć system idealnie dopasowany do Twojej firmy.
+          {content.FLOW_ONE_COMPONENT.DESCRIPTION}
         </p>
 
         <div className={`${styles.goal} ${isVisible ? styles.visible : ''}`}>
-          <h3>Cel wdrożenia</h3>
+          <h3>{content.FLOW_ONE_COMPONENT.GOAL.TITLE}</h3>
           <p>
-            Usprawnienie pracy poprzez automatyzację powtarzalnych zadań i scentralizowanie danych w jednym, 
-            intuicyjnym systemie. Koniec z przeskakiwaniem między dziesiątkami aplikacji – wszystko w jednym miejscu.
+            {content.FLOW_ONE_COMPONENT.GOAL.DESCRIPTION}
           </p>
           <div className={styles.billingModel}>
-            <strong>Model rozliczeniowy:</strong> FTE/success fee
+            {content.FLOW_ONE_COMPONENT.GOAL.BILLING}
           </div>
         </div>
 
-        <h3 className={styles.processTitle}>Proces Wdrożenia FlowOne SYSTEM</h3>
+        <h3 className={styles.processTitle}>{content.FLOW_ONE_COMPONENT.PROCESS_TITLE}</h3>
         <div className={styles.processStepsContainer}>
           <div className={styles.processSteps}>
-            {PROCESS_STEPS.map((step, index) => (
+            {content.PROCESS_STEPS.map((step, index) => (
               <ProcessStepCard
                 key={index}
                 step={step}
@@ -148,14 +156,13 @@ export const FlowOne: React.FC = () => {
           </div>
         </div>
 
-        <h3 className={styles.areasTitle}>Przykładowe Obszary Automatyzacji</h3>
+        <h3 className={styles.areasTitle}>{content.FLOW_ONE_COMPONENT.AREAS.TITLE}</h3>
         <p className={styles.areasSubtitle}>
-          FlowOne SYSTEM można dostosować do niemal każdego procesu biznesowego. 
-          Oto najczęściej automatyzowane obszary:
+          {content.FLOW_ONE_COMPONENT.AREAS.SUBTITLE}
         </p>
-        
+
         <div className={styles.automationAreas}>
-          {AUTOMATION_AREAS.map((area, index) => (
+          {content.AUTOMATION_AREAS.map((area, index) => (
             <AutomationAreaCard
               key={index}
               area={area}
@@ -168,4 +175,3 @@ export const FlowOne: React.FC = () => {
     </section>
   )
 }
-
