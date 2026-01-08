@@ -335,8 +335,7 @@ export const IMPLEMENTATIONS_PAGE = {
 };
 
 export const PROBLEMS_COMPONENT = {
-    TITLE: "What's blocking us?",
-    SUBTITLE: "Sound familiar?",
+    TITLE: "Does your company experience…",
 };
 
 export const FLOW_ONE_COMPONENT = {

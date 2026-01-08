@@ -341,8 +341,7 @@ export const IMPLEMENTATIONS_PAGE = {
 };
 
 export const PROBLEMS_COMPONENT = {
-  TITLE: "Co nas blokuje?",
-  SUBTITLE: "Brzmi znajomo?",
+  TITLE: "Czy w firmie w której pracujesz…",
 };
 
 export const FLOW_ONE_COMPONENT = {

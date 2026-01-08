@@ -12,7 +12,6 @@ export const Problems: React.FC = () => {
       <div className="container">
         <div className={styles.header}>
           <h2 className={styles.title}>{content.PROBLEMS_COMPONENT.TITLE}</h2>
-          <p className={styles.subtitle}>{content.PROBLEMS_COMPONENT.SUBTITLE}</p>
         </div>
         <div className={styles.grid}>
           {content.PROBLEMS.map((problem, index) => (
