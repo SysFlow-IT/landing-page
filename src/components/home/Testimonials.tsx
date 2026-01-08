@@ -24,7 +24,7 @@ export const Testimonials: React.FC = () => {
     }, [isVisible]);
 
     return (
-        <section className={`${styles.section} section section--darker`} ref={ref}>
+        <section className={`${styles.section} section`} ref={ref}>
             <div className="container">
                 <h2 className="section-title">
                     {content.HOME_PAGE.TESTIMONIALS.TITLE}
