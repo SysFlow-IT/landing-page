@@ -135,16 +135,16 @@ export const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
 
             <div className={styles.actions}>
               <button
-                className={styles.langSwitch}
-                onClick={switchLanguage}
-              >
-                {language === 'pl' ? 'EN' : 'PL'}
-              </button>
-              <button
                 className={styles.ctaButton}
                 onClick={() => scrollToSection("kontakt")}
               >
                 {content.NAV.CONTACT}
+              </button>
+              <button
+                className={styles.langSwitch}
+                onClick={switchLanguage}
+              >
+                {language === 'pl' ? 'EN' : 'PL'}
               </button>
             </div>
           </div>

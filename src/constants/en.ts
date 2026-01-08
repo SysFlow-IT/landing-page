@@ -1,7 +1,7 @@
 export const CONTACT = {
     email: "contact@sysflow.one",
-    phone: "+48 535 000 000",
-    phoneLink: "tel:+48535000000",
+    phone: "+48 692 311 723",
+    phoneLink: "tel:+48692311723",
     emailLink: "mailto:contact@sysflow.one",
     address: "Warsaw, Poland",
     linkedin: "https://www.linkedin.com/company/sysflow-one",
@@ -9,18 +9,14 @@ export const CONTACT = {
 
 export const TEAM_MEMBERS = [
     {
-        name: "Michał Wróbel",
-        role: "Solution Architect",
-        image: "/image/michal.png", // Using default image path
-        bio: "Automation and AI implementation expert. Helps companies optimize processes and regain time for key tasks.",
-        linkedin: "https://www.linkedin.com/in/michal-wrobel-sysflow/",
+        name: "Michał Kurdziel",
+        role: "CEO & Founder",
+        image: `${import.meta.env.BASE_URL}image/kurdziel.jpg`,
     },
     {
         name: "Ricardo Ribeiro",
-        role: "Full Stack Developer",
-        image: "/image/ricardo.png", // Using default image path
-        bio: "Experienced developer specializing in frontend and modern web technologies. Responsible for tech layer and performance.",
-        linkedin: "https://www.linkedin.com/in/ricardo-ribeiro-dev/",
+        role: "Automation Manager",
+        image: `${import.meta.env.BASE_URL}image/ribeiro.jpg`,
     },
 ];
 
@@ -258,7 +254,7 @@ export const TESTIMONIALS = [
     },
 ];
 
-export const TRAINING_PRICE: number = 3000; // Approx equivalent or placeholder
+export const TRAINING_PRICE: number = 12000;
 
 export const HOME_PAGE = {
     HERO: {
@@ -372,7 +368,7 @@ export const TRAINING_COMPONENT = {
     FEATURES_TITLE: "What distinguishes our training?",
     PRICE: {
         TITLE: "Cost",
-        VALUE: 3000,
+        VALUE: 12000,
         NOTE: "Some presented applications are paid – the decision to purchase them belongs to the participants."
     },
     AGENDA: {

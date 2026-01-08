@@ -11,24 +11,25 @@ export const Team: React.FC = () => {
     <section id="team" className={styles.section} ref={ref}>
       <div className="container">
         <h2 className={styles.sectionTitle}>{content.TEAM_COMPONENT.TITLE}</h2>
-        <div className={styles.grid}>
+        <div className={styles.teamGrid}>
           {content.TEAM_MEMBERS.map((member, index) => (
             <div
               key={index}
-              className={`${styles.card} ${isVisible ? styles.visible : ''}`}
+              className={`${styles.teamMember} ${isVisible ? styles.visible : ''}`}
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className={styles.imageWrapper}>
+              <div className={styles.memberAvatar}>
                 <img
                   src={member.image}
                   alt={member.name}
-                  className={styles.image}
+                  className={styles.memberImage}
                   loading="lazy"
                 />
+                <div className={styles.memberGradient}></div>
               </div>
-              <div className={styles.content}>
+              <div className={styles.teamMemberContent}>
                 <h3>{member.name}</h3>
-                <p className={styles.role}>{member.role}</p>
+                <p className={styles.memberRole}>{member.role}</p>
               </div>
             </div>
           ))}

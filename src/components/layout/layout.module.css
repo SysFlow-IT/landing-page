@@ -125,21 +125,40 @@
   color: rgba(255, 255, 255, 0.75);
   border: none;
   border-left: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 0 1.5rem;
+  padding: 0.85rem 1.5rem;
   font-family: inherit;
   font-size: 0.85rem;
   letter-spacing: 0.12em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: color 0.3s ease, background 0.3s ease;
+  transition: color 0.3s ease;
   font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.langSwitch::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  background: var(--accent-green);
+  transition: height 0.35s ease;
+  z-index: -1;
 }
 
 .langSwitch:hover {
   color: var(--primary-color);
-  background: rgba(255, 255, 255, 0.05);
+}
+
+.langSwitch:hover::after {
+  height: 100%;
 }
 
 .ctaButton {
@@ -361,6 +380,17 @@
   .ctaButton {
     display: block;
     border: none;
+    text-align: left;
+    padding: 1rem 1.25rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .langSwitch {
+    display: block;
+    border: none;
+    border-left: none;
     text-align: left;
     padding: 1rem 1.25rem;
     font-size: 0.85rem;
