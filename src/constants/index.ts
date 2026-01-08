@@ -252,3 +252,13 @@ export const PROBLEMS_WDROZENIA = [
     text: "Procesy biznesowe są zbyt wolne i podatne na błędy ludzkie?",
   },
 ] as const;
+
+export const TESTIMONIALS = [
+  {
+    content: "Serdecznie polecam współpracę z GoFlow. Praca z zespołem przebiega w bardzo dobrej, partnerskiej atmosferze, przy jednoczesnym zachowaniu wysokiego poziomu profesjonalizmu. Dużą wartością jest ich podejście nastawione na realne potrzeby organizacji, skupienie na porządkowaniu i upraszczaniu procesów, a nie narzucaniu jednego „gotowego” rozwiązania. Dzięki wdrożonym automatyzacjom i rozwiązaniom opartym o AI udało nam się usprawnić wiele kluczowych obszarów operacyjnych, finansowych i biznesowych w Cookie3.",
+    author: "Wojtek Mrówka",
+    role: "Chief Operating Officer",
+    company: "Cookie3",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQF0qD9g8x_w-g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1683626354695?e=1741824000&v=beta&t=HkM-_s4m2GvXy8wz_Xq9C-t-7p-X-1-1-1-1-1",
+  },
+] as const;
