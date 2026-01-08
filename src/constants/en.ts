@@ -377,7 +377,8 @@ export const TRAINING_COMPONENT = {
 };
 
 export const TEAM_COMPONENT = {
-    TITLE: "Our Team"
+    TITLE: "SysFlow Team",
+    DESCRIPTION: "Behind the company's success are experienced specialists with a passion for optimization and automation."
 };
 
 export const CTA_COMPONENT = {

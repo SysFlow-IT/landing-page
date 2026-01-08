@@ -383,7 +383,8 @@ export const TRAINING_COMPONENT = {
 };
 
 export const TEAM_COMPONENT = {
-  TITLE: "Nasz Zespół"
+  TITLE: "Zespół SysFlow",
+  DESCRIPTION: "Za sukcesem firmy stoją doświadczeni specjaliści z pasją do optymalizacji i automatyzacji."
 };
 
 export const CTA_COMPONENT = {

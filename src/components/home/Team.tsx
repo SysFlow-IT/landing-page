@@ -11,6 +11,7 @@ export const Team: React.FC = () => {
     <section id="team" className={styles.section} ref={ref}>
       <div className="container">
         <h2 className={styles.sectionTitle}>{content.TEAM_COMPONENT.TITLE}</h2>
+        <p className={styles.sectionDescription}>{content.TEAM_COMPONENT.DESCRIPTION}</p>
         <div className={styles.teamGrid}>
           {content.TEAM_MEMBERS.map((member, index) => (
             <div
