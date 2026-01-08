@@ -1,30 +1,99 @@
 import React from "react";
 import { useContent } from "../../hooks/useContent";
-import { useRevealOnIntersect } from "@hooks/useRevealOnIntersect";
 import styles from "./Problems.module.css";
 
-export const Problems: React.FC = () => {
+interface Problem {
+  image: string;
+  text: string;
+}
+
+interface ProblemsProps {
+  title?: string;
+  problems?: readonly Problem[];
+}
+
+export const Problems: React.FC<ProblemsProps> = ({
+  title,
+  problems,
+}) => {
   const { content } = useContent();
-  const { ref, isVisible } = useRevealOnIntersect();
+  const displayTitle = title ?? content.PROBLEMS_COMPONENT.TITLE;
+  const displayProblems = problems ?? content.PROBLEMS;
+
+  const cardRefs = React.useRef<(HTMLElement | null)[]>([]);
+  const [visibleCards, setVisibleCards] = React.useState<boolean[]>([]);
+
+  React.useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    cardRefs.current.forEach((card, index) => {
+      if (!card) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setVisibleCards((prev) => {
+              const newState = [...prev];
+              newState[index] = true;
+              return newState;
+            });
+            observer.unobserve(card);
+          }
+        },
+        {
+          threshold: 0.2,
+          rootMargin: "0px 0px -50px 0px",
+        }
+      );
+
+      observer.observe(card);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, []);
 
   return (
-    <section className={styles.section} ref={ref}>
+    <section className={`${styles.section} section section--dark`}>
       <div className="container">
-        <div className={styles.header}>
-          <h2 className={styles.title}>{content.PROBLEMS_COMPONENT.TITLE}</h2>
-        </div>
-        <div className={styles.grid}>
-          {content.PROBLEMS.map((problem, index) => (
-            <div
+        <h2 className="section-title">{displayTitle}</h2>
+        <div className={styles.list}>
+          {displayProblems.map((problem, index) => (
+            <article
               key={index}
-              className={`${styles.card} ${isVisible ? styles.visible : ""}`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
+              className={`${styles.card} ${
+                visibleCards[index] ? styles.visible : ""
+              }`}
+              style={
+                {
+                  "--card-index": index,
+                } as React.CSSProperties
+              }
             >
-              <div className={styles.imageWrapper}>
-                <img src={problem.image} alt="" className={styles.image} loading="lazy" />
+              <div className={styles.cardContent}>
+                <span className={styles.cardIndex}>
+                  {String(index + 1).padStart(2, "0")} /
+                </span>
+                <div className={styles.copy}>
+                  <div className={styles.titleLine}>{problem.text}</div>
+                </div>
               </div>
-              <p className={styles.text}>{problem.text}</p>
-            </div>
+              <div className={styles.cardPreview}>
+                <div className={styles.previewInner}>
+                  <img
+                    src={problem.image}
+                    alt=""
+                    className={styles.previewImage}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </article>
           ))}
         </div>
       </div>
