@@ -266,6 +266,7 @@ export const HOME_PAGE = {
         TITLE: "Automation, AI, Security, and Data Management Systems",
         SUBTITLE: "SysFlow.One is a software house that transforms how companies work through automation, AI, security, and data management systems.",
         BUTTON_PRIMARY: "Book a Meeting",
+        BUTTON_SECONDARY: "See Projects",
     },
     SOLUTIONS: {
         TITLE: "Our Solutions",

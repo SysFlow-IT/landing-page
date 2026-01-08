@@ -268,6 +268,7 @@ export const HOME_PAGE = {
     TITLE: "Automatyzacja, AI, bezpieczeństwo i systemy zarządzania danymi",
     SUBTITLE: "SysFlow.One to software house, który przekształca sposób pracy firm poprzez automatyzację, AI, bezpieczeństwo i systemy zarządzania danymi.",
     BUTTON_PRIMARY: "Umów spotkanie",
+    BUTTON_SECONDARY: "Zobacz projekty",
   },
   SOLUTIONS: {
     TITLE: "Nasze Rozwiązania",
