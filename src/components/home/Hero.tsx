@@ -70,12 +70,14 @@ export const Hero: React.FC = () => {
             danymi.
           </p>
           <div className={styles.heroActions}>
-            <button
+            <a
+              href="https://calendly.com/michal-sysflow/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.primaryAction}
-              onClick={() => scrollToSection("kontakt")}
             >
               Umów spotkanie
-            </button>
+            </a>
             <button
               className={styles.secondaryAction}
               onClick={() => scrollToSection("flowone")}

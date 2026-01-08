@@ -98,8 +98,8 @@ export const WdrozeniaPage: React.FC = () => {
             Umów bezpłatną konsultację i dowiedz się, jak możemy zautomatyzować procesy w Twojej organizacji.
           </p>
           <div className={styles.ctaButtons}>
-            <a href={`mailto:${CONTACT.email}`} className={styles.primaryAction}>
-              Umów konsultację
+            <a href="https://calendly.com/michal-sysflow/30min" target="_blank" rel="noopener noreferrer" className={styles.primaryAction}>
+              Umów spotkanie
             </a>
             <a href={CONTACT.phoneLink} className={styles.secondaryAction}>
               {CONTACT.phone}

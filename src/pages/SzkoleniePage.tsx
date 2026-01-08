@@ -96,8 +96,8 @@ export const SzkoleniePage: React.FC = () => {
             Skontaktuj się z nami, aby omówić szczegóły programu i dostosować go do potrzeb Twojej firmy.
           </p>
           <div className={styles.ctaButtons}>
-            <a href={`mailto:${CONTACT.email}`} className={styles.primaryAction}>
-              Napisz do nas
+            <a href="https://calendly.com/michal-sysflow/30min" target="_blank" rel="noopener noreferrer" className={styles.primaryAction}>
+              Umów spotkanie
             </a>
             <a href={CONTACT.phoneLink} className={styles.secondaryAction}>
               {CONTACT.phone}

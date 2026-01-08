@@ -187,8 +187,8 @@ export const HomePage: React.FC = () => {
             Umów bezpłatną konsultację i dowiedz się, jak możemy pomóc Twojej firmie.
           </p>
           <div className={styles.ctaButtons}>
-            <a href={`mailto:${CONTACT.email}`} className={styles.primaryAction}>
-              Napisz do nas
+            <a href="https://calendly.com/michal-sysflow/30min" target="_blank" rel="noopener noreferrer" className={styles.primaryAction}>
+              Umów spotkanie
             </a>
             <a href={CONTACT.phoneLink} className={styles.secondaryAction}>
               {CONTACT.phone}
