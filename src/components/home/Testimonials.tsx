@@ -32,6 +32,11 @@ export const Testimonials: React.FC = () => {
 
                 <div className={styles.testimonialWrapper}>
                     <div className={`${styles.card} ${isVisible ? styles.cardVisible : ''}`} ref={cardRef}>
+                        {testimonial.image && (
+                            <div className={styles.imageWrapper}>
+                                <img src={testimonial.image} alt={testimonial.author} className={styles.image} />
+                            </div>
+                        )}
                         <p className={styles.quote}>
                             "{testimonial.content}"
                         </p>

@@ -251,6 +251,7 @@ export const TESTIMONIALS = [
         author: "Wojtek Mrówka",
         role: "Chief Operating Officer",
         company: "Cookie3",
+        image: `${import.meta.env.BASE_URL}image/goryla-wojtek-mrowka.jpeg`,
     },
 ];
 
